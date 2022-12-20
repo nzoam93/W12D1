@@ -38,6 +38,17 @@ class Pokemon < ApplicationRecord
     validates :name, length: { in: 3..255}, uniqueness: {message: "'%{value}' is already in use in the database"}
     validates :number, numericality: {greater_than: 0}
     validates :attack, :defense, numericality: {in: 0..100}
-
     validates :poke_type, inclusion: { in: TYPES, message: "'%value' is not a valid pokemon type"}
+
+    has_many :poke_moves,
+    dependent: :destroy
+
+    has_many :items,
+    dependent: :destroy
+
+    has_many :moves,
+    through: :poke_moves,
+    source: :move
+
+    
 end

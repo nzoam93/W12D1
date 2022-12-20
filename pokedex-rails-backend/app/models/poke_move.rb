@@ -11,5 +11,9 @@
 class PokeMove < ApplicationRecord
     validates :pokemon_id, uniqueness: { scope: :move_id,
         message: "that move is already taken by a differnt pokemon" }
+
+    belongs_to :pokemon
+
+    belongs_to :move
 end
 

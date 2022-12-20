@@ -8,4 +8,13 @@
 #  updated_at :datetime         not null
 #
 class Move < ApplicationRecord
+
+    # belongs_to :pokemon
+
+    has_many :poke_moves,
+    dependent: :destroy
+
+    has_many
 end
+
+

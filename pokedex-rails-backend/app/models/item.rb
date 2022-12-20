@@ -12,4 +12,6 @@
 #  updated_at :datetime         not null
 #
 class Item < ApplicationRecord
+
+    belongs_to :pokemon
 end
